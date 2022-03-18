@@ -7,7 +7,6 @@ X = [ones(N,1), x];
 Y = y;
 phi_mult = least_minimum_square(X,Y)
 
-tol = eps
+tol = 1e-10;
 
-assert(abs(phi_lin(1)-phi_mult(1))<tol, 'Results(1) for regression differ')
-assert(abs(phi_lin(2)-phi_mult(2))<tol, 'Results(2) for regression differ')
+assert(compare_array(phi_lin, phi_mult, tol), 'Results differ')
